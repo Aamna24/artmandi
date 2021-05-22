@@ -4,6 +4,7 @@ from django.forms import ModelForm
 from django import forms
 from django.core.validators import MaxValueValidator, MinValueValidator
 from datetime import timedelta
+from cloudinary.models import CloudinaryField
 
 
 class User(AbstractUser):
@@ -14,7 +15,8 @@ class Listing(models.Model):
     title = models.CharField(max_length=30)
     description = models.TextField(max_length=300)
     #image = models.URLField()
-    image = models.FileField(upload_to='uploads', default='')
+   # image = models.FileField(upload_to='uploads', default='')
+    image = models.ImageField(upload_to='images/')
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     PRODUCT_CHOICES = (
         ('E', "ELECTRONICS"),

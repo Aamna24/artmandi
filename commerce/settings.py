@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -42,7 +44,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'django_filters',
-    "corsheaders"
+    "corsheaders",
+    "cloudinary"
 ]
 
 MIDDLEWARE = [
@@ -142,3 +145,11 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'xaid.butt.10@gmail.com'
 EMAIL_HOST_PASSWORD = 'fa17bcs112'
 EMAIL_PORT = 587
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dexn8tnt9',
+    'API_KEY': '828443825275634',
+    'API_SECRET': 'oYWmlitChe7pZ7K9PatCNZaXfMk'
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
